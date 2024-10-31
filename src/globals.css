@@ -486,3 +486,12 @@ div[id^="headlessui-menu-items"] {
   font-size: 13px;
   padding: 7px 14px;
 }
+
+.learn-subtitle {
+  @apply mt-2;
+  @apply pb-2;
+  @apply border-neutral-200;
+  @apply border-b;
+  @apply text-xl;
+  @apply dark:border-neutral-700/80;
+}
