@@ -8,6 +8,7 @@ export default {
   schema: "Schemas and Types",
   validation: "",
   execution: "",
+  response: "",
   introspection: "",
   "-- 2": {
     type: "separator",
