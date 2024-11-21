@@ -2,7 +2,7 @@
 
 This repository contains the source code for the [GraphQL website](https://graphql.org).
 
-You can find more discussions on the [#website channel on the GraphQL Slack](https://graphql.slack.com/messages/website/). [Get your invite here!](https://graphql-slack.herokuapp.com/).
+You can find more discussions on the #website channel on [the GraphQL Discord](https://discord.graphql.org).
 
 ## Table of Contents
 
