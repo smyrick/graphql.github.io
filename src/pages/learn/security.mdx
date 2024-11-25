@@ -77,7 +77,7 @@ query {
 }
 ```
 
-Even when [the N+1 problem](/learn/performance/#the-n1-problem) has been remediated through batched requests to underlying data sources, overly nested fields may still place excessive load on server resources and impact API performance. 
+Even when the N+1 problem has been remediated through batched requests to underlying data sources, overly nested fields may still place excessive load on server resources and impact API performance. 
 
 For this reason, it's a good idea to limit the maximum depth of fields that a single operation can have. Many GraphQL implementations expose configuration options that allow you to specify a maximum depth for a GraphQL document and return an error to the client if a request exceeds this limit before execution begins.
 
