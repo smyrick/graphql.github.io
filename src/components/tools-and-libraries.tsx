@@ -168,16 +168,23 @@ export function CodePage({ allTags, data }: CodePageProps) {
 
   const [sort, setSort] = useState("popularity")
 
+  let description = `A collection of tools and libraries for GraphQL`
+  let title = "Tools and Libraries | GraphQL"
+  if (selectedTagsAsString) {
+    description += ` related to ${selectedTagsAsString}`
+    title = `${selectedTagsAsString} | ${title}`
+  }
+
   return (
     <>
       <NextHead>
-        <title>
-          {selectedTagsAsString ? selectedTagsAsString + " | " : ""}Tools and
-          Libraries | GraphQL
-        </title>
+        <title>{title}</title>
+        <meta property="og:title" content={title} key="meta-og-title" />
+        <meta name="description" content={description} key="meta-description" />
         <meta
-          name="description"
-          content={`A collection of tools and libraries for GraphQL${selectedTagsAsString ? ` related to ${selectedTagsAsString}` : ""}`}
+          property="og:description"
+          content={description}
+          key="meta-og-description"
         />
       </NextHead>
       <div className="container py-10 md:py-20">
