@@ -24,5 +24,6 @@ export default {
   "schema-design": "Schema Design",
   "global-object-identification": "",
   caching: "",
+  performance: "",
   security: "",
 }
