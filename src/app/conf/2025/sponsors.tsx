@@ -50,7 +50,7 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("flex gap-6 flex-col md:flex-row", className)}>
+    <div className={clsx("flex gap-6 max-lg:flex-col", className)}>
       {items.map(({ link, icon, name }, i) => (
         <a
           key={i}
@@ -197,7 +197,7 @@ export function Sponsors() {
             href="https://events.linuxfoundation.org/wp-content/uploads/2024/12/sponsor_GraphQLConf_2025.pdf?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
             target="_blank"
             rel="noreferrer"
-            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+            className="px-20 md:px-28 py-4 text-center text-white text-3xl font-semibold bg-primary/85 hover:bg-primary/100 transition-colors"
           >
             Download Prospectus
           </a>
