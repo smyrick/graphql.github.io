@@ -16,9 +16,11 @@ import { Badge } from "./badge"
 export function Header({
   links,
   logo,
+  is2025,
 }: {
   links: { href: string; children: React.ReactNode; "aria-disabled"?: true }[]
   logo: ReactNode
+  is2025?: boolean
 }): ReactElement {
   const pathname = usePathname()
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
@@ -33,7 +35,9 @@ export function Header({
 
   return (
     <header className="border-b border-[#565060] sticky top-0 bg-conf-black z-10">
-      <div className="container flex items-center h-[70px] gap-5">
+      <div
+        className={`container flex items-center ${is2025 ? "justify-between" : ""} h-[70px] gap-5`}
+      >
         <div className="flex items-center gap-2">
           <NextLink href="/">
             <GraphQLLogo className="h-8" />
@@ -79,6 +83,11 @@ export function Header({
               <NextLink
                 key={link.href}
                 {...link}
+                // if external link, open in new tab
+                {...(link.href.startsWith("https") && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
                 className={clsx(
                   "px-4",
                   isDisabled
