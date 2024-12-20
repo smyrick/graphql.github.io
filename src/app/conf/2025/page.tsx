@@ -22,19 +22,19 @@ function Hero() {
     <section className="conf-hero-2025 relative">
       <div className="flex h-full flex-col justify-center py-16 md:py-28">
         <div className="flex flex-col items-center justify-center">
-          <h1
-            style={{
-              fontSize: "min(calc(10px + 80vw / 12), 150px)",
-              fontWeight: "bold",
-              fontFamily: rubik.style.fontFamily,
-            }}
-          >
+          <h1 className="text-center text-5xl font-bold md:text-7xl">
             GraphQLConf <span className="font-light">2025</span>
           </h1>
           <HostedByGraphQLFoundation className="mb-6 h-8 w-full shrink-0 self-start lg:h-10" />
-          <span className={`${rubik.className} text-xl font-medium`}>
-            September 08 - 10, 2025 | Amsterdam, Netherlands
-          </span>
+          <div className="flex flex-col justify-center text-xl font-medium md:flex-row md:gap-2">
+            <div className="flex items-center gap-1">
+              <time dateTime="2025-09-08">September 08</time>
+              <span>-</span>
+              <time dateTime="2025-09-10">10, 2025</time>
+            </div>
+            <span className="hidden md:block">|</span>
+            <address className="not-italic">Amsterdam, Netherlands</address>
+          </div>
         </div>
       </div>
       <div

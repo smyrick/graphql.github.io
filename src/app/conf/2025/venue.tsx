@@ -9,20 +9,17 @@ const HOTELS = [
   {
     name: "Mövenpick Hotel Amsterdam City Centre",
     link: "https://movenpick.accor.com/en/europe/netherlands/amsterdam/hotel-amsterdam.html?utm_source=google&utm_medium=local&utm_campaign=hotel-MHR-Amsterdam-city-center&y_source=1_MTUzNjI2OTgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-    description:
-      "Piet Heinkade 11\n1019 BR Amsterdam, Netherlands\nPhone: +31 20 519 1200",
+    description: `Piet Heinkade 11\n1019 BR Amsterdam, Netherlands\nPhone: <a class="hover:text-primary underline" href="tel:+31 20 519 1200">+31 20 519 1200</a>`,
   },
   {
     name: "Inntel Hotels Amsterdam Landmark",
     link: "https://www.inntelhotelsamsterdamlandmark.nl/",
-    description:
-      "VOC-kade 600\n1018 LG Amsterdam, Netherlands\n Phone: +31 20 227 2550",
+    description: `VOC-kade 600\n1018 LG Amsterdam, Netherlands\n Phone: <a class="hover:text-primary underline" href="tel:+31 20 227 2550">+31 20 227 2550</a>`,
   },
   {
     name: "DoubleTree by Hilton Amsterdam Central Station",
     link: "https://www.hilton.com/en/hotels/amscsdi-doubletree-amsterdam-centraal-station/?SEO_id=GMB-EMEA-DI-AMSCSDI",
-    description:
-      "Oosterdoksstraat 4 \n1011 DK Amsterdam, Netherlands\nPhone: +31 20 530 0800",
+    description: `Oosterdoksstraat 4 \n1011 DK Amsterdam, Netherlands\nPhone: <a class="hover:text-primary underline" href="tel:+31 20 530 0800">+31 20 530 0800</a>`,
   },
 ]
 
@@ -54,11 +51,11 @@ export function Venue() {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <h2 className="text-3xl">Conference</h2>
-          <p>
+          <address className="not-italic">
             <strong>Pakhuis De Zwijger</strong>
             <br /> Piet Heinkade 179, 1019 HC <br />
             Amsterdam, Netherlands
-          </p>
+          </address>
           <div className="flex flex-col gap-2">
             <h3 className="mt-4 text-xl font-semibold">
               How to get to the venue?
@@ -83,18 +80,23 @@ export function Venue() {
           </p>
           <div className="mt-10 flex flex-col gap-4">
             {HOTELS.map(hotel => (
-              <div key={hotel.name}>
+              <address className="not-italic" key={hotel.name}>
                 <strong>
                   <a
                     className="flex items-center gap-1 hover:underline"
+                    target="_blank"
+                    rel="noreferrer"
                     href={hotel.link}
                   >
                     {hotel.name}
                     <ExternalLink size={14} />
                   </a>
                 </strong>
-                <p className="whitespace-pre-wrap">{hotel.description}</p>
-              </div>
+                <span
+                  className="whitespace-pre-wrap"
+                  dangerouslySetInnerHTML={{ __html: hotel.description }}
+                />
+              </address>
             ))}
           </div>
         </div>
