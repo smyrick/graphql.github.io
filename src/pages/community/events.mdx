@@ -14,45 +14,45 @@ import { meetups } from "../../components/meetups"
 import { events } from "../../components/events"
 import "leaflet/dist/leaflet.css"
 import pinkCircle from "./pink-circle.svg"
-import { Button } from '../../app/conf/_components/button'
+import { Button } from "../../app/conf/_components/button"
 
 export function EventCard({ href, date, city, name, meta }) {
   return (
     <a
       href={href}
       className={clsx(
-        "text-current no-underline flex border border-neutral-300 dark:border-neutral-700 rounded-none",
-        "hover:!border-primary hover:shadow-2xl hover:shadow-primary/10 transition-colors *:transition-colors hover:relative group",
-        "relative after:content-['_↗'] after:font-sans after:absolute after:right-4 after:top-4",
+        "flex rounded-none border border-neutral-300 text-current no-underline dark:border-neutral-700",
+        "group transition-colors *:transition-colors hover:relative hover:!border-primary hover:shadow-2xl hover:shadow-primary/10",
+        "relative after:absolute after:right-4 after:top-4 after:font-sans after:content-['_↗']"
       )}
       target="_blank"
       rel="noreferrer"
     >
       {date && (
-        <div className="shrink-0 flex flex-col justify-center items-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 lg:w-48 w-28">
-          <div className="text-5xl lg:text-7xl font-bold">{date.getDate()}</div>
+        <div className="flex w-28 shrink-0 flex-col items-center justify-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 lg:w-48">
+          <div className="text-5xl font-bold lg:text-7xl">{date.getDate()}</div>
           <div className="text-sm lg:text-lg">
             {date.toLocaleString("en", {
               month: "short",
-              year: "numeric",
+              year: "numeric"
             })}
           </div>
         </div>
       )}
-      <div className="bg-white dark:bg-neutral-900 group-hover:dark:bg-zinc-800 grow py-4 lg:py-7 px-5 lg:px-10 flex flex-col gap-4">
+      <div className="flex grow flex-col gap-4 bg-white px-5 py-4 dark:bg-neutral-900 group-hover:dark:bg-zinc-800 lg:px-10 lg:py-7">
         <b className="text-primary max-lg:text-xs">{meta}</b>
-        <div className="font-bold text-lg lg:text-2xl">{name}</div>
-        <div className="text-xs lg:text-lg flex flex-wrap lg:gap-x-6 gap-2">
+        <div className="text-lg font-bold lg:text-2xl">{name}</div>
+        <div className="flex flex-wrap gap-2 text-xs lg:gap-x-6 lg:text-lg">
           <div className="flex items-center gap-2">
-            <LocationIcon className="fill-primary size-5" />
+            <LocationIcon className="size-5 fill-primary" />
             {city}
           </div>
           {date && (
             <div className="flex items-center gap-2">
-              <ClockIcon className="fill-primary size-5" />
+              <ClockIcon className="size-5 fill-primary" />
               {date.toLocaleString("en", {
                 hour: "numeric",
-                minute: "numeric",
+                minute: "numeric"
               })}
             </div>
           )}
@@ -73,7 +73,7 @@ export const { pastEvents, upcomingEvents } = events.reduce(
     }
     return acc
   },
-  { pastEvents: [], upcomingEvents: [] },
+  { pastEvents: [], upcomingEvents: [] }
 )
 
 export function Events({ events }) {
@@ -97,7 +97,10 @@ export function Events({ events }) {
 
 <Events events={upcomingEvents} />
 
-<Button href="/community/foundation/local-initiative" className="mx-auto my-6 !block">
+<Button
+  href="/community/foundation/local-initiative"
+  className="mx-auto my-6 !block"
+>
   Start a GraphQL Local!
 </Button>
 
@@ -116,7 +119,7 @@ export function Meetups() {
       // and replace default marker image
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: pinkCircle.src,
-        shadowUrl: "",
+        shadowUrl: ""
       })
       const map = L.map("map").setView([45, -15], 2)
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map)
@@ -124,14 +127,14 @@ export function Meetups() {
         L.marker([node.latitude, node.longitude])
           .addTo(map)
           .bindPopup(
-            `<a href="${node.link}" target="_blank" rel="noreferrer" class="!text-primary">${node.name}</a>`,
+            `<a href="${node.link}" target="_blank" rel="noreferrer" class="!text-primary">${node.name}</a>`
           )
       }
     })
   }, [])
   return (
     <>
-      <div id="map" className="h-96 my-6 z-0" />
+      <div id="map" className="z-0 my-6 h-96" />
       {meetups.map(({ node }) => (
         <EventCard
           key={node.id}
@@ -146,14 +149,18 @@ export function Meetups() {
 
 <Meetups />
 
-{/*
+{/\*
+
 # Join the GraphQL Community
 
-The GraphQL community is growing fast, with conferences, workshops, and meetups happening around the world.
+The GraphQL community is growing fast, with conferences, workshops, and meetups
+happening around the world.
 
-Join our community to stay up to date with the latest developments, to learn from your peers, and to share your own experiences.
+Join our community to stay up to date with the latest developments, to learn
+from your peers, and to share your own experiences.
 
-Browse the list of community meetups below, or search through the GraphQL events to find an event near you.
+Browse the list of community meetups below, or search through the GraphQL events
+to find an event near you.
 
 export const CommunityIntro = () => {
   const { meetups } = useData()
@@ -168,7 +175,7 @@ export const CommunityIntro = () => {
 export const UrlList = ({ urls }) => {
   return (
     <div>
-      <ul className="list-disc ml-3">
+      <ul className="ml-3 list-disc">
         {urls.map(link => (
           <li key={link.href}>
             <a href={link.href} className="block p-1 text-sm">
@@ -188,6 +195,7 @@ export const CommunityList = () => {
   const continents = [...new Set(unsetContinents)];
 
 return (
+
 <div>
 <div>
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
@@ -206,12 +214,17 @@ const urls = meetups.filter(
         </div>
       </div>
     </div>
-)
-}
+
+) }
 
 export const EventsIntro = () => {
-  const { events } = useData();
-  return <p>Join one of <strong>{events.length}</strong> recent or upcoming GraphQL events around the world!</p>
+  const { events } = useData()
+  return (
+    <p>
+      Join one of <strong>{events.length}</strong> recent or upcoming GraphQL
+      events around the world!
+    </p>
+  )
 }
 
 export const EventsList = () => {
@@ -268,37 +281,43 @@ const events = data.events;
         </div>
       </div>
     )
+
 }
 
 ## GraphQL Communities
+
 <CommunityIntro />
 
 <CommunityList />
 
 ## GraphQL Events
+
 <EventsIntro />
 
 <EventsList />
 
 ## Events
-*/}
-{/* _None currently scheduled_ */}
 
-{/* Event template, copy and paste what you need. Please note that the only three required fields are the name of the event, who is organizing and hosting it, and the link to the code of conduct. Events without this information can't be posted.
+_/} {/_ _None currently scheduled_ \*/}
+
+{/\* Event template, copy and paste what you need. Please note that the only
+three required fields are the name of the event, who is organizing and hosting
+it, and the link to the code of conduct. Events without this information can't
+be posted.
 
 ### [Name of the event - REQUIRED]
 
-* **Date(s):** [date]
-* **Location:** [city, state, country|Virtual|Hybrid]
-* **Registration:** [link to reg site, with cost]
-* **CFP:** [link to CFP site]
-* **Schedule:** [link to schedule site]
-* **Host:** [name of organization or company hosting the event - REQUIRED]
-* **Code of Conduct:** [link to code of conduct - REQUIRED]
+- **Date(s):** [date]
+- **Location:** [city, state, country|Virtual|Hybrid]
+- **Registration:** [link to reg site, with cost]
+- **CFP:** [link to CFP site]
+- **Schedule:** [link to schedule site]
+- **Host:** [name of organization or company hosting the event - REQUIRED]
+- **Code of Conduct:** [link to code of conduct - REQUIRED]
 
-*/}
+\*/}
 
-{/*
+{/\*
 
 ### GraphQLConf 2023
 
@@ -367,4 +386,4 @@ const events = data.events;
 
 - [GraphQL Nairobi](https://www.meetup.com/Nairobi-GraphQL-Meetup/)
 
-*/}
+\*/}

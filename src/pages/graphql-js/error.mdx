@@ -6,8 +6,9 @@ title: graphql/error
 
 # `graphql/error`
 
-The `graphql/error` module is responsible for creating and formatting
-GraphQL errors. You can import either from the `graphql/error` module, or from the root `graphql` module. For example:
+The `graphql/error` module is responsible for creating and formatting GraphQL
+errors. You can import either from the `graphql/error` module, or from the root
+`graphql` module. For example:
 
 ```js
 import { GraphQLError } from "graphql" // ES6
@@ -19,22 +20,26 @@ var { GraphQLError } = require("graphql") // CommonJS
 <ul className="apiIndex">
   <li>
     <a href="#graphqlerror">
-      `class GraphQLError` A representation of an error that occurred within GraphQL.
+      `class GraphQLError` A representation of an error that occurred within
+      GraphQL.
     </a>
   </li>
   <li>
     <a href="#syntaxerror">
-      `function syntaxError` Produces a GraphQLError representing a syntax error.
+      `function syntaxError` Produces a GraphQLError representing a syntax
+      error.
     </a>
   </li>
   <li>
     <a href="#locatedError">
-      `function locatedError` Produces a new GraphQLError aware of the location responsible for the error.
+      `function locatedError` Produces a new GraphQLError aware of the location
+      responsible for the error.
     </a>
   </li>
   <li>
     <a href="#formaterror">
-      `function formatError` Format an error according to the rules described by the Response Format.
+      `function formatError` Format an error according to the rules described by
+      the Response Format.
     </a>
   </li>
 </ul>
@@ -45,21 +50,21 @@ var { GraphQLError } = require("graphql") // CommonJS
 
 ```ts
 class GraphQLError extends Error {
- constructor(
-   message: string,
-   nodes?: any[],
-   stack?: string,
-   source?: Source,
-   positions?: number[],
-   originalError?: Error,
-   extensions?: { [key: string]: mixed }
- )
+  constructor(
+    message: string,
+    nodes?: any[],
+    stack?: string,
+    source?: Source,
+    positions?: number[],
+    originalError?: Error,
+    extensions?: { [key: string]: mixed }
+  )
 }
 ```
 
-A representation of an error that occurred within GraphQL. Contains
-information about where in the query the error occurred for debugging. Most
-commonly constructed with `locatedError` below.
+A representation of an error that occurred within GraphQL. Contains information
+about where in the query the error occurred for debugging. Most commonly
+constructed with `locatedError` below.
 
 ### `syntaxError`
 
@@ -90,15 +95,15 @@ document responsible for the original Error.
 function formatError(error: GraphQLError): GraphQLFormattedError
 
 type GraphQLFormattedError = {
-  message: string,
+  message: string
   locations: GraphQLErrorLocation[]
-};
+}
 
 type GraphQLErrorLocation = {
-  line: number,
+  line: number
   column: number
-};
+}
 ```
 
-Given a GraphQLError, format it according to the rules described by the
-Response Format, Errors section of the GraphQL Specification.
+Given a GraphQLError, format it according to the rules described by the Response
+Format, Errors section of the GraphQL Specification.

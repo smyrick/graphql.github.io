@@ -7,10 +7,10 @@ import { clsx } from "clsx"
 
 export default function Blog() {
   const { asPath } = useRouter()
-  const items = getPagesUnderRoute("/blog").flatMap(item => item.children || item)
-  const blogs = items.sort(
-    (a, b) => b.frontMatter.date - a.frontMatter.date,
+  const items = getPagesUnderRoute("/blog").flatMap(
+    item => item.children || item
   )
+  const blogs = items.sort((a, b) => b.frontMatter.date - a.frontMatter.date)
   const currentTag = asPath.startsWith("/blog")
     ? ""
     : asPath.replace("/tags/", "").replace(/\/$/, "")
@@ -24,7 +24,7 @@ export default function Blog() {
     }, {})
   //
   const tagList = (
-    <div className="flex gap-3 md:gap-5 mt-6 flex-wrap roboto-mono">
+    <div className="roboto-mono mt-6 flex flex-wrap gap-3 md:gap-5">
       {Object.entries(tags)
         .sort((a, b) => b[1] - a[1])
         .map(([tag, count]) => (
@@ -32,7 +32,7 @@ export default function Blog() {
             key={tag}
             href={currentTag === tag ? "/blog" : `/tags/${tag}`}
             data-active={currentTag === tag ? "" : undefined}
-            className={clsx("tag [&[data-active]]:bg-primary capitalize")}
+            className={clsx("tag capitalize [&[data-active]]:bg-primary")}
           >
             {tag.replaceAll("-", " ")} ({count})
           </NextLink>
@@ -49,39 +49,39 @@ export default function Blog() {
           href={page.route}
           className="flex flex-col"
         >
-          <div className="gap-2 flex mb-7">
+          <div className="mb-7 flex gap-2">
             {page.frontMatter.tags.map(tag => (
               <Tag key={tag}>{tag.replaceAll("-", " ")}</Tag>
             ))}
           </div>
-          <div className="font-extrabold text-xl md:text-3xl text-balance">
+          <div className="text-balance text-xl font-extrabold md:text-3xl">
             {page.frontMatter.title}
           </div>
-          <div className="opacity-50 text-sm my-7 flex gap-2">
+          <div className="my-7 flex gap-2 text-sm opacity-50">
             <time dateTime={page.frontMatter.date.toISOString()}>
               {page.frontMatter.date.toLocaleDateString("en", {
                 month: "long",
                 day: "numeric",
-                year: "numeric",
+                year: "numeric"
               })}
             </time>
             <span className="border-r border-gray-500" />
             <span>by {page.frontMatter.byline}</span>
           </div>
-          <span className="text-primary block font-bold mt-auto">
+          <span className="mt-auto block font-bold text-primary">
             Read more →
           </span>
         </Card>
-      ),
+      )
   )
   return (
     <>
-      <div className="py-10 md:py-20 container">
-        <h1 className="text-4xl md:text-7xl font-extrabold mb-10">Blog</h1>
+      <div className="container py-10 md:py-20">
+        <h1 className="mb-10 text-4xl font-extrabold md:text-7xl">Blog</h1>
         <h3 className="text-2xl font-bold">Categories</h3>
         {tagList}
       </div>
-      <div className="container grid md:grid-cols-2 gap-7 pb-10">
+      <div className="container grid gap-7 pb-10 md:grid-cols-2">
         {blogList}
       </div>
     </>

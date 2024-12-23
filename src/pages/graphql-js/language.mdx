@@ -6,7 +6,9 @@ title: graphql/language
 
 # `graphql/language`
 
-The `graphql/language` module is responsible for parsing and operating on the GraphQL language. You can import either from the `graphql/language` module, or from the root `graphql` module. For example:
+The `graphql/language` module is responsible for parsing and operating on the
+GraphQL language. You can import either from the `graphql/language` module, or
+from the root `graphql` module. For example:
 
 ```js
 import { Source } from "graphql" // ES6
@@ -25,7 +27,8 @@ var { Source } = require("graphql") // CommonJS
   </li>
   <li>
     <a href="#getlocation">
-      `function getLocation` Converts a character offset to a row and column in the Source
+      `function getLocation` Converts a character offset to a row and column in
+      the Source
     </a>
   </li>
 </ul>
@@ -65,7 +68,8 @@ var { Source } = require("graphql") // CommonJS
 <ul className="apiIndex">
   <li>
     <a href="#visit">
-      `function visit` A general-purpose visitor to traverse a parsed GraphQL AST
+      `function visit` A general-purpose visitor to traverse a parsed GraphQL
+      AST
     </a>
   </li>
   <li>
@@ -79,9 +83,7 @@ var { Source } = require("graphql") // CommonJS
 
 <ul className="apiIndex">
   <li>
-    <a href="#print">
-      `function print` Prints an AST in a standard format.
-    </a>
+    <a href="#print">`function print` Prints an AST in a standard format.</a>
   </li>
 </ul>
 
@@ -95,10 +97,10 @@ export class Source {
 }
 ```
 
-A representation of source input to GraphQL. The name is optional,
-but is mostly useful for clients who store GraphQL documents in
-source files; for example, if the GraphQL input is in a file Foo.graphql,
-it might be useful for name to be "Foo.graphql".
+A representation of source input to GraphQL. The name is optional, but is mostly
+useful for clients who store GraphQL documents in source files; for example, if
+the GraphQL input is in a file Foo.graphql, it might be useful for name to be
+"Foo.graphql".
 
 ### getLocation
 
@@ -106,50 +108,46 @@ it might be useful for name to be "Foo.graphql".
 function getLocation(source: Source, position: number): SourceLocation
 
 type SourceLocation = {
-  line: number;
-  column: number;
+  line: number
+  column: number
 }
 ```
 
-Takes a Source and a UTF-8 character offset, and returns the corresponding
-line and column as a SourceLocation.
+Takes a Source and a UTF-8 character offset, and returns the corresponding line
+and column as a SourceLocation.
 
 ## Lexer
 
 ### `lex`
 
 ```ts
-function lex(source: Source): Lexer;
+function lex(source: Source): Lexer
 
-type Lexer = (resetPosition?: number) => Token;
+type Lexer = (resetPosition?: number) => Token
 
 export type Token = {
-  kind: number;
-  start: number;
-  end: number;
-  value: string;
-};
+  kind: number
+  start: number
+  end: number
+  value: string
+}
 ```
 
-Given a Source object, this returns a Lexer for that source.
-A Lexer is a function that acts like a generator in that every time
-it is called, it returns the next token in the Source. Assuming the
-source lexes, the final Token emitted by the lexer will be of kind
-EOF, after which the lexer will repeatedly return EOF tokens whenever
-called.
+Given a Source object, this returns a Lexer for that source. A Lexer is a
+function that acts like a generator in that every time it is called, it returns
+the next token in the Source. Assuming the source lexes, the final Token emitted
+by the lexer will be of kind EOF, after which the lexer will repeatedly return
+EOF tokens whenever called.
 
-The argument to the lexer function is optional, and can be used to
-rewind or fast forward the lexer to a new position in the source.
+The argument to the lexer function is optional, and can be used to rewind or
+fast forward the lexer to a new position in the source.
 
 ## Parser
 
 ### `parse`
 
 ```ts
-export function parse(
-  source: Source | string,
-  options?: ParseOptions
-): Document
+export function parse(source: Source | string, options?: ParseOptions): Document
 ```
 
 Given a GraphQL source, parses it into a Document.
@@ -169,8 +167,8 @@ Given a string containing a GraphQL value, parse the AST for that value.
 
 Throws GraphQLError if a syntax error is encountered.
 
-This is useful within tools that operate upon GraphQL Values directly and
-in isolation of complete GraphQL documents.
+This is useful within tools that operate upon GraphQL Values directly and in
+isolation of complete GraphQL documents.
 
 ### `Kind`
 
@@ -184,18 +182,18 @@ An enum that describes the different kinds of AST nodes.
 function visit(root, visitor, keyMap)
 ```
 
-visit() will walk through an AST using a depth first traversal, calling
-the visitor's enter function at each node in the traversal, and calling the
-leave function after visiting that node and all of its child nodes.
+visit() will walk through an AST using a depth first traversal, calling the
+visitor's enter function at each node in the traversal, and calling the leave
+function after visiting that node and all of its child nodes.
 
-By returning different values from the enter and leave functions, the
-behavior of the visitor can be altered, including skipping over a sub-tree of
-the AST (by returning false), editing the AST by returning a value or null
-to remove the value, or to stop the whole traversal by returning BREAK.
+By returning different values from the enter and leave functions, the behavior
+of the visitor can be altered, including skipping over a sub-tree of the AST (by
+returning false), editing the AST by returning a value or null to remove the
+value, or to stop the whole traversal by returning BREAK.
 
-When using visit() to edit an AST, the original AST will not be modified, and
-a new version of the AST with the changes applied will be returned from the
-visit function.
+When using visit() to edit an AST, the original AST will not be modified, and a
+new version of the AST with the changes applied will be returned from the visit
+function.
 
 ```js
 var editedAST = visit(ast, {
@@ -214,14 +212,13 @@ var editedAST = visit(ast, {
     //   visitor.BREAK: stop visiting altogether
     //   null: delete this node
     //   any value: replace this node with the returned value
-  },
+  }
 })
 ```
 
-Alternatively to providing enter() and leave() functions, a visitor can
-instead provide functions named the same as the kinds of AST nodes, or
-enter/leave visitors at a named key, leading to four permutations of
-visitor API:
+Alternatively to providing enter() and leave() functions, a visitor can instead
+provide functions named the same as the kinds of AST nodes, or enter/leave
+visitors at a named key, leading to four permutations of visitor API:
 
 1. Named visitors triggered when entering a node a specific kind.
 
@@ -229,12 +226,12 @@ visitor API:
 visit(ast, {
   Kind(node) {
     // enter the "Kind" node
-  },
+  }
 })
 ```
 
-2. Named visitors that trigger upon entering and leaving a node of
-   a specific kind.
+2. Named visitors that trigger upon entering and leaving a node of a specific
+   kind.
 
 ```js
 visit(ast, {
@@ -258,7 +255,7 @@ visit(ast, {
   },
   leave(node) {
     // leave any node
-  },
+  }
 })
 ```
 
@@ -269,13 +266,13 @@ visit(ast, {
   enter: {
     Kind(node) {
       // enter the "Kind" node
-    },
+    }
   },
   leave: {
     Kind(node) {
       // leave the "Kind" node
-    },
-  },
+    }
+  }
 })
 ```
 
@@ -291,5 +288,4 @@ The sentinel `BREAK` value described in the documentation of `visitor`.
 function print(ast): string
 ```
 
-Converts an AST into a string, using one set of reasonable
-formatting rules.
+Converts an AST into a string, using one set of reasonable formatting rules.

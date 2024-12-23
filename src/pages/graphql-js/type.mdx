@@ -6,7 +6,9 @@ title: graphql/type
 
 # `graphql/type`
 
-The `graphql/type` module is responsible for defining GraphQL types and schema. You can import either from the `graphql/type` module, or from the root `graphql` module. For example:
+The `graphql/type` module is responsible for defining GraphQL types and schema.
+You can import either from the `graphql/type` module, or from the root `graphql`
+module. For example:
 
 ```js
 import { GraphQLSchema } from "graphql" // ES6
@@ -19,7 +21,10 @@ var { GraphQLSchema } = require("graphql") // CommonJS
 
 <ul className="apiIndex">
   <li>
-    <a href="#graphqlschema">`class GraphQLSchema` A representation of the capabilities of a GraphQL Server.</a>
+    <a href="#graphqlschema">
+      `class GraphQLSchema` A representation of the capabilities of a GraphQL
+      Server.
+    </a>
   </li>
 </ul>
 
@@ -27,76 +32,125 @@ var { GraphQLSchema } = require("graphql") // CommonJS
 
 <ul className="apiIndex">
   <li>
-    <a href="#graphqlscalartype">`class GraphQLScalarType` A scalar type within GraphQL.</a>
+    <a href="#graphqlscalartype">
+      `class GraphQLScalarType` A scalar type within GraphQL.
+    </a>
   </li>
   <li>
-  <a href="#graphqlobjecttype">`class GraphQLObjectType` An object type within GraphQL that contains fields.</a>
-</li>
+    <a href="#graphqlobjecttype">
+      `class GraphQLObjectType` An object type within GraphQL that contains
+      fields.
+    </a>
+  </li>
   <li>
-  <a href="#graphqlinterfacetype">`class GraphQLInterfaceType` An interface type within GraphQL that defines fields implementations will contain.</a>
-</li>
+    <a href="#graphqlinterfacetype">
+      `class GraphQLInterfaceType` An interface type within GraphQL that defines
+      fields implementations will contain.
+    </a>
+  </li>
   <li>
-  <a href="#graphqluniontype">`class GraphQLUnionType` A union type within GraphQL that defines a list of implementations.</a>
-</li>
+    <a href="#graphqluniontype">
+      `class GraphQLUnionType` A union type within GraphQL that defines a list
+      of implementations.
+    </a>
+  </li>
   <li>
-  <a href="#graphqlenumtype">`class GraphQLEnumType` An enum type within GraphQL that defines a list of valid values.</a>
-</li>
+    <a href="#graphqlenumtype">
+      `class GraphQLEnumType` An enum type within GraphQL that defines a list of
+      valid values.
+    </a>
+  </li>
   <li>
-  <a href="#graphqlinputobjecttype">`class GraphQLInputObjectType` An input object type within GraphQL that represents structured inputs.</a>
-</li>
+    <a href="#graphqlinputobjecttype">
+      `class GraphQLInputObjectType` An input object type within GraphQL that
+      represents structured inputs.
+    </a>
+  </li>
   <li>
-  <a href="#graphqllist">`class GraphQLList` A type wrapper around other types that represents a list of those types.</a>
-</li>
+    <a href="#graphqllist">
+      `class GraphQLList` A type wrapper around other types that represents a
+      list of those types.
+    </a>
+  </li>
   <li>
-  <a href="#graphqlnonnull">`class GraphQLNonNull` A type wrapper around other types that represents a non-null version of those types.</a>
-</li>
+    <a href="#graphqlnonnull">
+      `class GraphQLNonNull` A type wrapper around other types that represents a
+      non-null version of those types.
+    </a>
+  </li>
 </ul>
 
 ### Predicates
 
 <ul className="apiIndex">
   <li>
-  <a href="#isinputtype">`function isInputType` Returns if a type can be used as input types for arguments and directives.</a>
-</li>
+    <a href="#isinputtype">
+      `function isInputType` Returns if a type can be used as input types for
+      arguments and directives.
+    </a>
+  </li>
   <li>
-  <a href="#isoutputtype">`function isOutputType` Returns if a type can be used as output types as the result of fields.</a>
-</li>
+    <a href="#isoutputtype">
+      `function isOutputType` Returns if a type can be used as output types as
+      the result of fields.
+    </a>
+  </li>
   <li>
-  <a href="#isleaftype">`function isLeafType` Returns if a type can be a leaf value in a response.</a>
-</li>
+    <a href="#isleaftype">
+      `function isLeafType` Returns if a type can be a leaf value in a response.
+    </a>
+  </li>
   <li>
-  <a href="#iscompositetype">`function isCompositeType` Returns if a type can be the parent context of a selection set.</a>
-</li>
+    <a href="#iscompositetype">
+      `function isCompositeType` Returns if a type can be the parent context of
+      a selection set.
+    </a>
+  </li>
   <li>
-  <a href="#isabstracttype">`function isAbstractType` Returns if a type is a combination of object types.</a>
-</li>
+    <a href="#isabstracttype">
+      `function isAbstractType` Returns if a type is a combination of object
+      types.
+    </a>
+  </li>
 </ul>
 
 ### Un-modifiers
 
 <ul className="apiIndex">
   <li>
-  <a href="#getnullabletype">`function getNullableType` Strips any non-null wrappers from a type.</a>
-</li>
+    <a href="#getnullabletype">
+      `function getNullableType` Strips any non-null wrappers from a type.
+    </a>
+  </li>
   <li>
-  <a href="#getnamedtype">`function getNamedType` Strips any non-null or list wrappers from a type.</a>
-</li>
+    <a href="#getnamedtype">
+      `function getNamedType` Strips any non-null or list wrappers from a type.
+    </a>
+  </li>
 </ul>
 
 ### Scalars
 
 <ul className="apiIndex">
   <li>
-    <a href="#graphqlint">`var GraphQLInt` A scalar type representing integers.</a>
+    <a href="#graphqlint">
+      `var GraphQLInt` A scalar type representing integers.
+    </a>
   </li>
   <li>
-    <a href="#graphqlfloat">`var GraphQLFloat` A scalar type representing floats.</a>
+    <a href="#graphqlfloat">
+      `var GraphQLFloat` A scalar type representing floats.
+    </a>
   </li>
   <li>
-    <a href="#graphqlstring">`var GraphQLString` A scalar type representing strings.</a>
+    <a href="#graphqlstring">
+      `var GraphQLString` A scalar type representing strings.
+    </a>
   </li>
   <li>
-    <a href="#graphqlboolean">`var GraphQLBoolean` A scalar type representing booleans.</a>
+    <a href="#graphqlboolean">
+      `var GraphQLBoolean` A scalar type representing booleans.
+    </a>
   </li>
   <li>
     <a href="#graphqlid">`var GraphQLID` A scalar type representing IDs.</a>
@@ -113,14 +167,14 @@ class GraphQLSchema {
 }
 
 type GraphQLSchemaConfig = {
-  query: GraphQLObjectType;
-  mutation?: GraphQLObjectType;
+  query: GraphQLObjectType
+  mutation?: GraphQLObjectType
 }
 ```
 
-A Schema is created by supplying the root types of each type of operation,
-query and mutation (optional). A schema definition is then supplied to the
-validator and executor.
+A Schema is created by supplying the root types of each type of operation, query
+and mutation (optional). A schema definition is then supplied to the validator
+and executor.
 
 #### Example
 
@@ -128,7 +182,7 @@ validator and executor.
 var MyAppSchema = new GraphQLSchema({
   query: MyAppQueryRootType,
   mutation: MyAppMutationRootType
-});
+})
 ```
 
 ## Definitions
@@ -141,17 +195,17 @@ class GraphQLScalarType<InternalType> {
 }
 
 type GraphQLScalarTypeConfig<InternalType> = {
-  name: string;
-  description?: string;
-  serialize: (value: mixed) => InternalType;
-  parseValue?: (value: mixed) => InternalType;
-  parseLiteral?: (valueAST: Value) => InternalType;
+  name: string
+  description?: string
+  serialize: (value: mixed) => InternalType
+  parseValue?: (value: mixed) => InternalType
+  parseLiteral?: (valueAST: Value) => InternalType
 }
 ```
 
-The leaf values of any request and input values to arguments are
-Scalars (or Enums) and are defined with a name and a series of serialization
-functions used to ensure validity.
+The leaf values of any request and input values to arguments are Scalars (or
+Enums) and are defined with a name and a series of serialization functions used
+to ensure validity.
 
 #### Example
 
@@ -181,72 +235,72 @@ class GraphQLObjectType {
 }
 
 type GraphQLObjectTypeConfig = {
-  name: string;
-  interfaces?: GraphQLInterfacesThunk | GraphQLInterfaceType[];
-  fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap;
-  isTypeOf?: (value: any, info?: GraphQLResolveInfo) => boolean;
+  name: string
+  interfaces?: GraphQLInterfacesThunk | GraphQLInterfaceType[]
+  fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap
+  isTypeOf?: (value: any, info?: GraphQLResolveInfo) => boolean
   description?: string
 }
 
-type GraphQLInterfacesThunk = () => Array<GraphQLInterfaceType>;
+type GraphQLInterfacesThunk = () => Array<GraphQLInterfaceType>
 
-type GraphQLFieldConfigMapThunk = () => GraphQLFieldConfigMap;
+type GraphQLFieldConfigMapThunk = () => GraphQLFieldConfigMap
 
 // See below about resolver functions.
 type GraphQLFieldResolveFn = (
   source?: any,
-  args?: {[argName: string]: any},
+  args?: { [argName: string]: any },
   context?: any,
   info?: GraphQLResolveInfo
 ) => any
 
 type GraphQLResolveInfo = {
-  fieldName: string,
-  fieldNodes: Array<Field>,
-  returnType: GraphQLOutputType,
-  parentType: GraphQLCompositeType,
-  schema: GraphQLSchema,
-  fragments: { [fragmentName: string]: FragmentDefinition },
-  rootValue: any,
-  operation: OperationDefinition,
-  variableValues: { [variableName: string]: any },
+  fieldName: string
+  fieldNodes: Array<Field>
+  returnType: GraphQLOutputType
+  parentType: GraphQLCompositeType
+  schema: GraphQLSchema
+  fragments: { [fragmentName: string]: FragmentDefinition }
+  rootValue: any
+  operation: OperationDefinition
+  variableValues: { [variableName: string]: any }
 }
 
 type GraphQLFieldConfig = {
-  type: GraphQLOutputType;
-  args?: GraphQLFieldConfigArgumentMap;
-  resolve?: GraphQLFieldResolveFn;
-  deprecationReason?: string;
-  description?: string;
+  type: GraphQLOutputType
+  args?: GraphQLFieldConfigArgumentMap
+  resolve?: GraphQLFieldResolveFn
+  deprecationReason?: string
+  description?: string
 }
 
 type GraphQLFieldConfigArgumentMap = {
-  [argName: string]: GraphQLArgumentConfig;
-};
+  [argName: string]: GraphQLArgumentConfig
+}
 
 type GraphQLArgumentConfig = {
-  type: GraphQLInputType;
-  defaultValue?: any;
-  description?: string;
+  type: GraphQLInputType
+  defaultValue?: any
+  description?: string
 }
 
 type GraphQLFieldConfigMap = {
-  [fieldName: string]: GraphQLFieldConfig;
-};
+  [fieldName: string]: GraphQLFieldConfig
+}
 ```
 
 Almost all of the GraphQL types you define will be object types. Object types
 have a name, but most importantly describe their fields.
 
-When two types need to refer to each other, or a type needs to refer to
-itself in a field, you can use a function expression (aka a closure or a
-thunk) to supply the fields lazily.
+When two types need to refer to each other, or a type needs to refer to itself
+in a field, you can use a function expression (aka a closure or a thunk) to
+supply the fields lazily.
 
-Note that resolver functions are provided the `source` object as the first parameter.
-However, if a resolver function is not provided, then the default resolver is
-used, which looks for a method on `source` of the same name as the field. If found,
-the method is called with `(args, context, info)`. Since it is a method on `source`,
-that value can always be referenced with `this`.
+Note that resolver functions are provided the `source` object as the first
+parameter. However, if a resolver function is not provided, then the default
+resolver is used, which looks for a method on `source` of the same name as the
+field. If found, the method is called with `(args, context, info)`. Since it is
+a method on `source`, that value can always be referenced with `this`.
 
 #### Examples
 
@@ -282,17 +336,17 @@ class GraphQLInterfaceType {
 }
 
 type GraphQLInterfaceTypeConfig = {
-  name: string,
-  fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap,
-  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType,
+  name: string
+  fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap
+  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType
   description?: string
-};
+}
 ```
 
-When a field can return one of a heterogeneous set of types, a Interface type
-is used to describe what types are possible, what fields are in common across
-all types, as well as a function to determine which type is actually used
-when the field is resolved.
+When a field can return one of a heterogeneous set of types, a Interface type is
+used to describe what types are possible, what fields are in common across all
+types, as well as a function to determine which type is actually used when the
+field is resolved.
 
 #### Example
 
@@ -313,18 +367,18 @@ class GraphQLUnionType {
 }
 
 type GraphQLUnionTypeConfig = {
-  name: string,
-  types: GraphQLObjectsThunk | GraphQLObjectType[],
-  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType;
-  description?: string;
-};
+  name: string
+  types: GraphQLObjectsThunk | GraphQLObjectType[]
+  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType
+  description?: string
+}
 
-type GraphQLObjectsThunk = () => GraphQLObjectType[];
+type GraphQLObjectsThunk = () => GraphQLObjectType[]
 ```
 
-When a field can return one of a heterogeneous set of types, a Union type
-is used to describe what types are possible as well as providing a function
-to determine which type is actually used when the field is resolved.
+When a field can return one of a heterogeneous set of types, a Union type is
+used to describe what types are possible as well as providing a function to
+determine which type is actually used when the field is resolved.
 
 ### Example
 
@@ -339,7 +393,7 @@ var PetType = new GraphQLUnionType({
     if (value instanceof Cat) {
       return CatType
     }
-  },
+  }
 })
 ```
 
@@ -351,32 +405,32 @@ class GraphQLEnumType {
 }
 
 type GraphQLEnumTypeConfig = {
-  name: string;
-  values: GraphQLEnumValueConfigMap;
-  description?: string;
+  name: string
+  values: GraphQLEnumValueConfigMap
+  description?: string
 }
 
 type GraphQLEnumValueConfigMap = {
-  [valueName: string]: GraphQLEnumValueConfig;
-};
+  [valueName: string]: GraphQLEnumValueConfig
+}
 
 type GraphQLEnumValueConfig = {
-  value?: any;
-  deprecationReason?: string;
-  description?: string;
+  value?: any
+  deprecationReason?: string
+  description?: string
 }
 
 type GraphQLEnumValueDefinition = {
-  name: string;
-  value?: any;
-  deprecationReason?: string;
-  description?: string;
+  name: string
+  value?: any
+  deprecationReason?: string
+  description?: string
 }
 ```
 
-Some leaf values of requests and input values are Enums. GraphQL serializes
-Enum values as strings, however internally Enums can be represented by any
-kind of type, often integers.
+Some leaf values of requests and input values are Enums. GraphQL serializes Enum
+values as strings, however internally Enums can be represented by any kind of
+type, often integers.
 
 Note: If a value is not provided in a definition, the name of the enum value
 will be used as its internal value.
@@ -389,8 +443,8 @@ var RGBType = new GraphQLEnumType({
   values: {
     RED: { value: 0 },
     GREEN: { value: 1 },
-    BLUE: { value: 2 },
-  },
+    BLUE: { value: 2 }
+  }
 })
 ```
 
@@ -402,37 +456,40 @@ class GraphQLInputObjectType {
 }
 
 type GraphQLInputObjectConfig = {
-  name: string;
-  fields: GraphQLInputObjectConfigFieldMapThunk | GraphQLInputObjectConfigFieldMap;
-  description?: string;
+  name: string
+  fields:
+    | GraphQLInputObjectConfigFieldMapThunk
+    | GraphQLInputObjectConfigFieldMap
+  description?: string
 }
 
-type GraphQLInputObjectConfigFieldMapThunk = () => GraphQLInputObjectConfigFieldMap;
+type GraphQLInputObjectConfigFieldMapThunk =
+  () => GraphQLInputObjectConfigFieldMap
 
 type GraphQLInputObjectFieldConfig = {
-  type: GraphQLInputType;
-  defaultValue?: any;
-  description?: string;
+  type: GraphQLInputType
+  defaultValue?: any
+  description?: string
 }
 
 type GraphQLInputObjectConfigFieldMap = {
-  [fieldName: string]: GraphQLInputObjectFieldConfig;
-};
+  [fieldName: string]: GraphQLInputObjectFieldConfig
+}
 
 type GraphQLInputObjectField = {
-  name: string;
-  type: GraphQLInputType;
-  defaultValue?: any;
-  description?: string;
+  name: string
+  type: GraphQLInputType
+  defaultValue?: any
+  description?: string
 }
 
 type GraphQLInputObjectFieldMap = {
-  [fieldName: string]: GraphQLInputObjectField;
-};
+  [fieldName: string]: GraphQLInputObjectField
+}
 ```
 
-An input object defines a structured collection of fields which may be
-supplied to a field argument.
+An input object defines a structured collection of fields which may be supplied
+to a field argument.
 
 Using `NonNull` will ensure that a value must be provided by the query
 
@@ -444,8 +501,8 @@ var GeoPoint = new GraphQLInputObjectType({
   fields: {
     lat: { type: new GraphQLNonNull(GraphQLFloat) },
     lon: { type: new GraphQLNonNull(GraphQLFloat) },
-    alt: { type: GraphQLFloat, defaultValue: 0 },
-  },
+    alt: { type: GraphQLFloat, defaultValue: 0 }
+  }
 })
 ```
 
@@ -457,9 +514,9 @@ class GraphQLList {
 }
 ```
 
-A list is a kind of type marker, a wrapping type which points to another
-type. Lists are often created within the context of defining the fields of
-an object type.
+A list is a kind of type marker, a wrapping type which points to another type.
+Lists are often created within the context of defining the fields of an object
+type.
 
 #### Example
 
@@ -468,8 +525,8 @@ var PersonType = new GraphQLObjectType({
   name: "Person",
   fields: () => ({
     parents: { type: new GraphQLList(PersonType) },
-    children: { type: new GraphQLList(PersonType) },
-  }),
+    children: { type: new GraphQLList(PersonType) }
+  })
 })
 ```
 
@@ -482,10 +539,10 @@ class GraphQLNonNull {
 ```
 
 A non-null is a kind of type marker, a wrapping type which points to another
-type. Non-null types enforce that their values are never null and can ensure
-an error is raised if this ever occurs during a request. It is useful for
-fields which you can make a strong guarantee on non-nullability, for example
-usually the id field of a database row will never be null.
+type. Non-null types enforce that their values are never null and can ensure an
+error is raised if this ever occurs during a request. It is useful for fields
+which you can make a strong guarantee on non-nullability, for example usually
+the id field of a database row will never be null.
 
 #### Example
 
@@ -493,8 +550,8 @@ usually the id field of a database row will never be null.
 var RowType = new GraphQLObjectType({
   name: "Row",
   fields: () => ({
-    id: { type: new GraphQLNonNull(String) },
-  }),
+    id: { type: new GraphQLNonNull(String) }
+  })
 })
 ```
 
@@ -548,8 +605,8 @@ These types may describe a combination of object types
 function getNullableType(type: GraphQLType): GraphQLNullableType
 ```
 
-If a given type is non-nullable, this strips the non-nullability and
-returns the underlying type.
+If a given type is non-nullable, this strips the non-nullability and returns the
+underlying type.
 
 ### getNamedType
 
