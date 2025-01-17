@@ -33,6 +33,25 @@ const FAQS = [
       'To request a Certificate of Attendance, please submit a request <a target="blank" href="https://docs.google.com/forms/d/1RpI8h6AGK2rCl3aIlyEY0D6fU3tsZ5yr1Ba6c3h6p9Y/viewform?edit_requested=true">here</a>. Please Note: We verify attendance through the registration system, and Certificate of Attendance letters are sent out after the event is completed.',
   },
   {
+    question: "How do I request a visa letter?",
+    answer:
+      "You must be registered for the event before requesting a visa letter. Please note: it can take up to an hour for our registration system and visa letter system to sync. Request a visa letter. ",
+  },
+  {
+    question: "Where can I find health and safety information for the event?",
+    answer:
+      'Your well-being is our top priority. We continuously update our health and safety guidelines based on local regulations. Information about food allergies, medical resources, emergency contacts, and safety services can be found on  <a href="/conf/2025/resources#onsite-resources">this</a> page.',
+  },
+  {
+    question: "What accessibility and onsite resources are available?",
+    answer:
+      'We are committed to providing a comfortable and accessible experience for all attendees. Onsite resources include a private nursing room, venue accessibility support, reserved seating, a quiet room, communication and pronoun stickers, all-gender restrooms, first aid assistance, and a process for handling harassment reports. For full details on these resources, please visit <a href="/conf/2025/resources#health--safety">this</a> page.',
+  },
+  {
+    question: "Looking for more?",
+    answer: "Checkout our <a href='/conf/2025/resources'>Resources</a> page.",
+  },
+  {
     question: "Cannot find the answer to your question?",
     answer:
       'You are welcome to email us <a href="mailto:graphqlconf@graphql.org">graphqlconf@graphql.org</a>.',
@@ -50,13 +69,14 @@ export function FAQ() {
             Asked Questions
           </h2>
           <p className="select-none text-sm">
-            PLEASE CONTACT{" "}
+            You can find much more information on our{" "}
             <a
-              href="mailto:graphqlconf@graphql.org"
-              className="select-text uppercase text-primary hover:underline"
+              href="/conf/2025/resources"
+              className="select-text text-primary hover:underline"
             >
-              graphqlconf@graphql.org
-            </a>
+              Resources
+            </a>{" "}
+            page.
           </p>
         </div>
 
